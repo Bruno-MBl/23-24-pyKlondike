@@ -32,7 +32,7 @@ public class Baraja {
         }
     }
 
-    public void poner(Carta carta) {
+    private void poner(Carta carta) {
         cartas[ultima] = carta;
         ultima++;
     }
@@ -52,20 +52,6 @@ public class Baraja {
         return cartas[ultima - 1];
     }
 
-    public void moverA(Descarte descarte) {
-        if (this.vacia()) {
-            System.out.println("¡No hay cartas en la baraja!");
-        } else {
-            int contador = 3;
-            while (contador > 0 && !this.vacia()) {
-                Carta carta = this.sacar();
-                carta.voltear();
-                descarte.poner(carta);
-                contador--;
-            }
-        }
-    }
-
     public Carta sacar() {
         ultima--;
         return cartas[ultima];
@@ -75,4 +61,8 @@ public class Baraja {
         return ultima == 0;
     }
 
+    public void ponerCarta(Carta carta) {
+        cartas[ultima] = carta;
+        ultima++;
+    }
 }

@@ -5,7 +5,7 @@ public class Carta {
     private int numero;
     private boolean bocaArriba;
 
-    private final String[] PALOS = { "♠️", "♣️", "♦️", "♥️" };
+    private final String[] PALOS = { "P", "T", "D", "C" };
     private final String[] NUMEROS = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "X", "J", "Q", "K" };
 
     private final Intervalo NEGROS = new Intervalo(0, 1);
@@ -61,5 +61,16 @@ public class Carta {
 
     private boolean rojo() {
         return ROJOS.incluye(this.palo);
+    }
+
+    public int getNumero(){
+        switch (numero) {
+            case 0:
+                return 11;
+            case 10,11,12:
+                return 10;
+            default:
+                return (this.numero+1);
+        }
     }
 }

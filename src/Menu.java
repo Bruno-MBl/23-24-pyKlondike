@@ -1,33 +1,23 @@
 import java.util.Scanner;
 
 public class Menu {
-
-    private final String[] TITULOS = new String[] {
-            "1. Mover de Baraja a Descarte",
-            "2. Mover de Descarte a Palo",
-            "3. Mover de Descarte a Columna",
-            "4. Mover de Palo a Columna",
-            "5. Mover de Columna a Palo",
-            "6. Mover de Columna a Columna",
-            "7. Voltear carta de Columna",
-            "8. Voltear Descarte en Baraja",
-            "9. Salir"
-    };
-
-    private final Intervalo OPCIONES = new Intervalo(1, 9);
+    private final Intervalo OPCIONES = new Intervalo(1, 3);
 
     public void mostrar() {
-        System.out.println("OPCIONES>");
-        for (String titulo : TITULOS) {
-            System.out.println(titulo);
-        }
+        final String OPCIONES = """
+                ----------------------------
+                1. Pedir,
+                2. Volver a empezar,
+                3. Salir
+                ----------------------------
+                """;
+        System.out.println(OPCIONES);
     }
 
     public int getOpcion() {
         int opcion;
         boolean error;
         do {
-            System.out.println("Elige una opción  [1-9]");
             opcion = new Scanner(System.in).nextInt();
             error = !OPCIONES.incluye(opcion);
         } while (error);
